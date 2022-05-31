@@ -1,0 +1,44 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    background-color: rgb(26, 26, 26);
+}
+nav .logOreg {
+    display: flex;
+    align-items:center;
+}
+/*clase color de la palabra QATAR*/
+nav div h1 {
+    font-weight: bold;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    color:rgb(255, 255, 255);
+}
+.qat {
+    color: rgb(255, 255, 255);
+}
+.ar {
+    color:rgb(141, 27, 61);
+}
+nav div {
+    display: flex;
+    align-items:center;
+}
+.contenedorLogoQatarNav {
+    margin: 10px 20px 10px 0px;
+    width: 20%;
+}
+.logoQatarNav {
+    height:60px;
+    width: 100%;
+}
+.logOreg div a {
+    color:white;
+}
+.logOreg div a:hover {
+    color:white;
+}
+.logOreg div:hover {
+    border-bottom: solid 3px white;
+}

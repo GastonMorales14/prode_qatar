@@ -1,6 +1,7 @@
 <?php
     require_once './libs/smarty/RouterClass.php';
     require_once './Controller/UserController.php';
+    require_once './Controller/SeleccionesController.php';
 
     // CONST FOR ROUTE
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -16,6 +17,7 @@
 
      //DefaultRoute
      $r->setDefaultRoute("UserController", "logIn");
+     $r->addRoute('home', 'GET', 'SeleccionesController', 'showHome');
 
      //run
      $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
