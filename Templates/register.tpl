@@ -1,6 +1,4 @@
 {include file='Templates/header.tpl'}
-<body>
-
 
   <div class="container w-75 justify-content-center mt-4 mb-4 rounded shadow">
     <div class="bg-white p-5 rounded-end">
@@ -34,11 +32,7 @@
     </div>
   </div>
   <h4 class="alert-danger">{$error}</h4>
-
-
-</body>
-
-    
+   
 
 
 
