@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-05-2022 a las 22:52:13
+-- Tiempo de generación: 02-06-2022 a las 23:46:35
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -24,12 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `acceso`
+--
+
+CREATE TABLE `acceso` (
+  `nacceso` int(11) DEFAULT NULL,
+  `vacceso` varchar(100) NOT NULL,
+  `bhabilitado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `selecciones`
 --
 
 CREATE TABLE `selecciones` (
-  `id_seleccion` int(11) NOT NULL,
-  `nombreseleccion` varchar(50) NOT NULL,
+  `nseleccion` int(11) NOT NULL,
+  `vseleccion` varchar(100) NOT NULL,
   `bandera` varbinary(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,7 +49,7 @@ CREATE TABLE `selecciones` (
 -- Volcado de datos para la tabla `selecciones`
 --
 
-INSERT INTO `selecciones` (`id_seleccion`, `nombreseleccion`, `bandera`) VALUES
+INSERT INTO `selecciones` (`nseleccion`, `vseleccion`, `bandera`) VALUES
 (1, 'QATAR', NULL),
 (2, 'ALEMANIA', NULL),
 (3, 'ALEMANIA', NULL),
@@ -71,6 +83,20 @@ INSERT INTO `selecciones` (`id_seleccion`, `nombreseleccion`, `bandera`) VALUES
 (31, 'COSTA RICA', NULL),
 (32, 'PERU', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `nusuario` int(11) NOT NULL,
+  `vnombre` varchar(50) NOT NULL,
+  `vapellido` varchar(50) NOT NULL,
+  `fk_nacceso` int(11) NOT NULL,
+  `tscreado` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -79,7 +105,13 @@ INSERT INTO `selecciones` (`id_seleccion`, `nombreseleccion`, `bandera`) VALUES
 -- Indices de la tabla `selecciones`
 --
 ALTER TABLE `selecciones`
-  ADD PRIMARY KEY (`id_seleccion`);
+  ADD PRIMARY KEY (`nseleccion`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`nusuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -89,7 +121,13 @@ ALTER TABLE `selecciones`
 -- AUTO_INCREMENT de la tabla `selecciones`
 --
 ALTER TABLE `selecciones`
-  MODIFY `id_seleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `nseleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `nusuario` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
