@@ -50,3 +50,13 @@ nav div {
     width: 100%;
     height:80vh;
 }
+.conjuntoSeleccion {
+    display:flex;
+}
+#paises {
+    width:20%;
+}
+/* LOGO PAISES*/
+.logoPais {
+    width: 50%;
+}
