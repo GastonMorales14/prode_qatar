@@ -11,10 +11,14 @@ $r = new Router();
 
 
 //Routes
+
+
+
+
 $r->addRoute('home', 'GET', 'SeleccionesController', 'showHome');
 
-
-
+//Conection Route
+$r->addRoute('connect', 'POST', 'UserController', 'connection');
 //DefaultRoute
 $r->setDefaultRoute("UserController", "logIn");
 
