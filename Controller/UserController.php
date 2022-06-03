@@ -2,15 +2,16 @@
 //TODO
 //USER MODEL
 require_once './View/UserView.php';
-
+require_once './Model/UserModel.php';
 
 class UserController{
 
     private $view;
-
+    private $model;
 
     function __construct(){
         $this->view= new UserView(); 
+        $this->model = new UserModel();
     }   
 
 
@@ -21,33 +22,37 @@ class UserController{
     public function connection(){
        
         if((!empty($_POST['email']))&&(!empty($_POST['password']))){
-            $email= $_POST['email'];
-            $password= $_POST['password'];     
-            if(isset($email) && isset($password)){
-               //ir al modelo y obtener los datos del usua
-               $BDusuario = [];
-                if(isset($BDusuario) && $BDusuario){               
-                    if(password_verify($password, $BDusuario->vpassword)){
-                        if($esUsuarioComun){
+            $vuser= $_POST['email'];
+            $password= $_POST['password'];   
+             
+            if(isset($vuser) && isset($password)){               
+               $BDuser = $this->model->getUsuario($vuser);
+                if(isset($BDuser) && $BDuser){               
+                    if(password_verify($password, $BDuser->vpassword)){
+                        //Administrador
+                        if($BDuser->fk_nacceso == 1){
                             session_start();
-                            $_SESSION['common_user']= $BDusuario->vnombre;
-                            //go home               
+                            $_SESSION['admin']= $BDuser->vnombre . ' '.$BDuser->vapellido;
+                            $this->view->homeLocation();                    
                         }
-                        elseif($esAdministrador){
+                        //Usuario
+                        elseif($BDuser->fk_nacceso == 2){
                             session_start();
-                            $_SESSION['admin_user']= $BDusuario->vnombre;
-                            //go home           
+                            $_SESSION['common_user']= $BDuser->vnombre . ' '.$BDuser->vapellido;
+                            $this->view->homeLocation();                
                         }
+                        
+                       
                     }else{
                         $this->view->showLogIn('Contraseña Incorrecta');                     
                     }
+                }else{
+                    $this->view->showLogIn('Usuario Inexistente');      
                 }
             }   
         }else{
             $this->view->showLogIn('Ingrese los datos obligatorios');      
         }
-
-
     }
 
     

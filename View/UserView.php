@@ -16,4 +16,10 @@ class UserView{
         $this->smarty->assign('msg_error', $msg);
          $this->smarty->display('Templates/logIn.tpl');
     }
+
+    //para evitar error en php_session generamos un location default
+
+    function homeLocation(){       
+        header("Location: ".BASE_URL."home");
+    }
 }
