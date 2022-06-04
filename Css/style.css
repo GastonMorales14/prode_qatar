@@ -44,19 +44,49 @@ nav div {
     border-bottom: solid 3px white;
 }
 
-/*HOME*/
+/*SELECCIONES*/
 
 .imgGrupos {
     width: 100%;
     height:80vh;
 }
-.conjuntoSeleccion {
-    display:flex;
+.contenedorJugadores ul li {
+    display: inline-block !important;
+    justify-content: space-between !important;
+    width: 20%;    
+    margin-left: 3%;
+    font-size: 2.1rem;   
+    cursor:pointer;
+    transition:all 0.4s ease; 
 }
-#paises {
-    width:20%;
+.contenedorJugadores ul li:hover {
+    transform:scale(1.1);
+}
+.card {
+    border:solid 2px rgb(150, 150, 150);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    list-style:none;   
+}
+.card-img-top {
+    width:100%;
+    height:280px;
 }
 /* LOGO PAISES*/
+.conjuntoSeleccion {
+    display:flex;
+    text-align: center;
+}
+#paises {
+    display:inline-block;  
+    width:100%;
+ 
+    margin-bottom: 3%;
+}
+#paises h1 {
+    text-transform: uppercase;
+}
 .logoPais {
-    width: 50%;
+    width: 20%;
+    height: 80px;
 }
