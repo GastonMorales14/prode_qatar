@@ -6,7 +6,7 @@ class SeleccionesModel{
 
 
     function __construct(){
-         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_prode_catar;charset=utf8', 'root', '');
+         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_prode_qatar;charset=utf8', 'root', '');
     }
 
     //trae todas las selecciones y las retorna en un objeto
