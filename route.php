@@ -16,6 +16,9 @@ $r = new Router();
 
 
 $r->addRoute('home', 'GET', 'SeleccionesController', 'showHome');
+$r->addRoute('registrar', 'GET', 'UserController', 'registry');
+
+$r->addRoute('creationUser', 'POST', 'UserController', 'creationUser');
 
 //Conection Route
 $r->addRoute('connect', 'POST', 'UserController', 'connection');

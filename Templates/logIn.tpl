@@ -20,7 +20,7 @@
                 </form>
             </div>
             <div class="division">
-                <h6>No tienes una cuenta? Registrate <a href="registry">aquí</a> </h6>
+                <h6>No tienes una cuenta? Registrate <a href="registrar">aquí</a> </h6>
             </div>
         </div>
     </div>

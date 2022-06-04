@@ -14,7 +14,12 @@ class UserView{
 
     public function showLogIn($msg = ''){
         $this->smarty->assign('msg_error', $msg);
-         $this->smarty->display('Templates/logIn.tpl');
+        $this->smarty->display('Templates/logIn.tpl');
+    }
+
+    public function showRegistry($msg = ''){
+        $this->smarty->assign('msg_error', $msg);
+        $this->smarty->display('Templates/register.tpl');
     }
 
     //para evitar error en php_session generamos un location default

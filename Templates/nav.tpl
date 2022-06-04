@@ -25,10 +25,10 @@
     {else}
         <div class="logOreg">
             <div class="">
-                <a href="login" class="nav-link login"> Iniciar sesión </a>
+                <a href="logIn" class="nav-link login"> Iniciar sesión </a>
             </div>
             <div>
-                <a href="register" class="nav-link register"> Registrarme </a>
+                <a href="registrar" class="nav-link register"> Registrarme </a>
             </div>
         </div>
     {/if}
