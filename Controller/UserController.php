@@ -105,7 +105,7 @@ class UserController{
             $this->view->homeLocation();  
 
         }else if($BDuser == true){
-            $this->view->formRegistro("El usuario: ". $vuser. " se encuentra registrado");
+            $this->view->showRegistry("El usuario: ". $vuser. " se encuentra registrado");
         }
     
         

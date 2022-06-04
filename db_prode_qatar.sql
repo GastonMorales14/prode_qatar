@@ -56,7 +56,7 @@ CREATE TABLE `usuario` (
   `vusuario` varchar(150) NOT NULL,
   `vnombre` varchar(100) NOT NULL,
   `vapellido` varchar(100) NOT NULL,
-  `vpassword` varchar(150) NOT NULL,
+  `vpassword` varchar(255) NOT NULL,
   `fk_nacceso` int(11) NOT NULL,
   `tscreado` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
