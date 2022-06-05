@@ -1,6 +1,6 @@
 <?php
 
-/* class AuthHelper{
+ class AuthHelper{
 
     function __construct(){
     }
@@ -10,25 +10,20 @@
     //si esta seteada la sesion con el email retorna verdadero y sino falso para chequear si el usuario esta logueado
     function checkLoggedIn(){
         session_start();
-        if(isset($_SESSION["email"])){  
+        if(isset($_SESSION['usuario'])){  
             return true;
         } else {
-            return false;
+           return false;
         }
     }
 
     //trae el nombre del usuario logueado
-    function getName(){
-        if(isset($_SESSION['name'])) {
-            $name = $_SESSION['name'];
-            return $name;
+    function checkAdimn() {
+        if(isset($_SESSION['admin'])) {
+            return true;
         }
-    }
-    //trae el rol del usuario loggeado
-    function getRole(){
-        if(isset($_SESSION['role'])) {
-            $role = $_SESSION['role'];
-            return $role;
+        else {
+            return false;
         }
     }
 
@@ -41,4 +36,3 @@
     }
 
 }
- */

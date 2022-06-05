@@ -35,12 +35,16 @@ class UserController{
                         if($BDuser->fk_nacceso == 1){
                             session_start();
                             $_SESSION['admin']= $BDuser->vnombre . ' '.$BDuser->vapellido;
+                            $_SESSION['usuario']=$BDuser->vusuario;
+                            $_SESSION['nombre']=$BDuser->vnombre . ' '.$BDuser->vapellido;
                             $this->view->homeLocation();                    
                         }
                         //Usuario
                         elseif($BDuser->fk_nacceso == 2){
                             session_start();
                             $_SESSION['common_user']= $BDuser->vnombre . ' '.$BDuser->vapellido;
+                            $_SESSION['usuario']=$BDuser->vusuario;
+                            $_SESSION['nombre']=$BDuser->vnombre . ' '.$BDuser->vapellido;
                             $this->view->homeLocation();                
                         }
                         
@@ -101,6 +105,8 @@ class UserController{
 
             session_start();
             $_SESSION['common_user']= $user->vnombre . ' '.$user->vapellido;
+            $_SESSION['usuario']=$BDuser->vusuario;
+            $_SESSION['nombre']=$BDuser->vnombre . ' '.$BDuser->vapellido;
 
             $this->view->homeLocation();  
 
@@ -122,6 +128,12 @@ class UserController{
         $this->view->showRegistry();  
 
     }
+
+    function logOut()  {
+        session_start();
+        session_destroy();
+        $this->view->loginLocation();
+      }
 
     
 }

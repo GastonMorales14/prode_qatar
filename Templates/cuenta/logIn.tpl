@@ -1,6 +1,6 @@
-{include file='templates/header.tpl'}
+{include file='templates/usoComun/header.tpl'}
 
-{include file='templates/nav.tpl'}
+
 
 <div class="main-container">
     <div class="overlay" id="overlay">
@@ -28,4 +28,4 @@
 
 
 <script src="./Js/conectPopUp.js"></script>
-{include file= 'templates/footer.tpl'}
+{include file= 'templates/usoComun/footer.tpl'}

@@ -9,7 +9,10 @@ class ViewSelecciones {
         $this->smarty = new Smarty();
     }
 
-    function showHome() {
+    function showHome($logueado = "", $admin = "", $name = "") {
+        $this->smarty->assign('logueado', $logueado);
+        $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('name', $name);
         $this->smarty->display('Templates/home.tpl');
     }
 }

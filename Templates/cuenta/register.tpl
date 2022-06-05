@@ -1,4 +1,4 @@
-{include file='Templates/header.tpl'}
+{include file='Templates/usoComun/header.tpl'}
 
   <div class="container w-75 justify-content-center mt-4 mb-4 rounded shadow">
     <div class="bg-white p-5 rounded-end">
@@ -36,4 +36,4 @@
 
 
 <script src='./Js/registry.js'></script>
-{include file='Templates/footer.tpl'}
+{include file='Templates/usocomun/footer.tpl'}
