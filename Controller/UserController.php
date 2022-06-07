@@ -1,6 +1,6 @@
 <?php
-//TODO
-//USER MODEL
+
+require_once "./Helpers/AuthHelper.php";
 require_once './View/UserView.php';
 require_once './Model/UserModel.php';
 
@@ -8,21 +8,27 @@ class UserController{
 
     private $view;
     private $model;
+    private $authHelper;
 
     function __construct(){
         $this->view= new UserView(); 
         $this->model = new UserModel();
+        $this->authHelper = new AuthHelper();
     }   
 
 
     public function logIn(){  
-        //helper    
-        $this->view->showLogIn();        
+        $logueado = $this->authHelper->checkLoggedIn();
+       
+        $logueado == false ?  $this->view->showLogIn() :  $this->view->homeLocation();  
+          
     }
 
     public function connection(){
-        //helper
+        $logueado = $this->authHelper->checkLoggedIn();
        
+        $logueado == false ?  $this->view->showLogIn() :  $this->view->homeLocation(); 
+        
         if((!empty($_POST['email']))&&(!empty($_POST['password']))){
             $vuser= $_POST['email'];
             $password= $_POST['password'];   
@@ -62,7 +68,7 @@ class UserController{
     }
 
     public function creationUser(){
-
+        
         if((empty($_POST['name']))){
             $this->view->showRegistry("Debe Ingresar Nombre"); 
             return;
@@ -124,7 +130,10 @@ class UserController{
 
 
     public function registry(){
-        //helper
+        $logueado = $this->authHelper->checkLoggedIn();
+       
+        $logueado == false ?  $this->view->showRegistry() :  $this->view->homeLocation();  
+
         $this->view->showRegistry();  
 
     }
